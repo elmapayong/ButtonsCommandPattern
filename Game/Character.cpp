@@ -38,18 +38,21 @@ void Character::down(){
 }
 
 void Character::left(){
-	x -= (speed*2);
+	x -= (speed*2);	//visually, x direction is slower than y. this accounts for it
 }
 
 void Character::right(){
-	x += (speed*2);
+	x += (speed*2);	//visually, x direction is slower than y. this accounts for it
 }
 
 void Character::setSpeed(int sp){
 	speed = sp;
 }
 
-int Character::getSpeed(){
+int Character::getSpeed(bool xspeed){
+	if (xspeed)
+		return (speed * 2);	//visually, x direction is slower than y. this accounts for it
+
 	return speed;
 }
 

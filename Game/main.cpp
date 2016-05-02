@@ -2,6 +2,10 @@
 #include "Player.h"
 #include "Command.h"
 #include "UpCommand.h"
+#include "DownCommand.h"
+#include "LeftCommand.h"
+#include "RightCommand.h"
+#include "AttackCommand.h"
 #include "Map.h"
 #include <Windows.h>
 
@@ -10,45 +14,17 @@
 using namespace std;
 
 int main(){
-	//Character* player1 = new Player();
-
-	//Command* up = new UpCommand();
-
-	//player1->print();
-
-	//up->execute(*player1);
-
-	//player1->print();
-
-	//bool done = false;
-	//while (!done){
-	//	if (GetAsyncKeyState(0x57) != 0){
-	//		up->execute(*player1);
-	//		player1->print();
-	//	}
-	//	if (GetAsyncKeyState(0x53) != 0){
-	//		cout << "down" << endl;
-	//	}
-	//	Sleep(300);
-	//}
-
-	//Map m;
-
-	//Player A;
-	//A.print();
-	//A.down(); 
-	//A.print();
-	//A.right();
-	//A.print();
-	//m.insert(A.getX(), A.getY(), A.getID());
-
-	//m.print();
-
-	bool gameover = false;
-	Character* playerA = new Player();
 	Map m;
-	char key_press;
-
+	Character* playerA = new Player();
+	Command* up = new UpCommand();
+	Command* down = new DownCommand();
+	Command* left = new LeftCommand();
+	Command* right = new RightCommand();
+	Command* attack = new AttackCommand();
+	
+	playerA->setX(1);
+	
+	bool gameover = false;
 	while (!gameover){
 		system("CLS");	//not portable
 		cout << flush;
@@ -57,27 +33,27 @@ int main(){
 
 		//W - up
 		if (GetAsyncKeyState(87) != 0){
-			if (m.isInHeight(playerA->getY() - playerA->getSpeed())) //checks if within bounds
-				playerA->up();
+			if (m.isInHeight(playerA->getY() - playerA->getSpeed(false))) //checks if within bounds
+				up->execute(*playerA);
 		}
 		//D - right
 		else if (GetAsyncKeyState(68) != 0){
-			if (m.isInWidth(playerA->getX() + playerA->getSpeed()))
-				playerA->right();
+			if (m.isInWidth(playerA->getX() + playerA->getSpeed(true)))
+				right->execute(*playerA);
 		}
 		//S - down
 		else if (GetAsyncKeyState(83) != 0){
-			if (m.isInHeight(playerA->getY() + playerA->getSpeed()))
-				playerA->down();
+			if (m.isInHeight(playerA->getY() + playerA->getSpeed(false)))
+				down->execute(*playerA);
 		}
 		//A - left
 		else if (GetAsyncKeyState(65) != 0){
-			if (m.isInWidth(playerA->getX() - playerA->getSpeed()))
-				playerA->left();
+			if (m.isInWidth(playerA->getX() - playerA->getSpeed(true)))
+				left->execute(*playerA);
 		}
 		//SPACEBAR - attack
 		else if (GetAsyncKeyState(VK_SPACE) != 0){
-			playerA->attack();
+			attack->execute(*playerA);
 		}
 		else if (GetAsyncKeyState(VK_BACK) != 0){
 			gameover = true;
@@ -90,16 +66,6 @@ int main(){
 
 
 
-
-
-
-	//bool done = false;
-	//while (!done){
-	//	if (GetAsyncKeyState(VK_SPACE) != 0)
-	//		done = true;
-	//}
-
-	//cout << "DONE" << endl;
 
 	//system("pause");
 }

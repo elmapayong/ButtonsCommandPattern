@@ -70,8 +70,11 @@
     <ClInclude Include="AttackCommand.h" />
     <ClInclude Include="LeftCommand.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RightCommand.h" />
+    <ClInclude Include="Spawner.h" />
+    <ClInclude Include="Troll.h" />
     <ClInclude Include="UpCommand.h" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +86,8 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RightCommand.cpp" />
+    <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="Troll.cpp" />
     <ClCompile Include="UpCommand.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
