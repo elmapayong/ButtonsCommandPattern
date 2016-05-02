@@ -66,12 +66,14 @@
   <ItemGroup>
     <ClInclude Include="Command.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="UpCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="UpCommand.cpp" />
   </ItemGroup>
