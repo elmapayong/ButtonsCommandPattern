@@ -13,6 +13,8 @@ class Map{
 public:
 	Map();
 	bool insert(int x, int y, char c);
+	bool isInWidth(int x);
+	bool isInHeight(int y);
 	void clear();
 	void print();
 private:

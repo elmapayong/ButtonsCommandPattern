@@ -17,6 +17,7 @@ public:
 	virtual void left();
 	virtual void right();
 	virtual void setSpeed(int speed);
+	virtual int getSpeed();
 	virtual void attack() = 0;
 	void print();
 protected:

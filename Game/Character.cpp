@@ -38,15 +38,19 @@ void Character::down(){
 }
 
 void Character::left(){
-	x -= speed;
+	x -= (speed*2);
 }
 
 void Character::right(){
-	x += speed;
+	x += (speed*2);
 }
 
 void Character::setSpeed(int sp){
 	speed = sp;
+}
+
+int Character::getSpeed(){
+	return speed;
 }
 
 void Character::print(){

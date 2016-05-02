@@ -6,6 +6,7 @@
 #include <Windows.h>
 
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 int main(){
@@ -46,28 +47,33 @@ int main(){
 	bool gameover = false;
 	Character* playerA = new Player();
 	Map m;
-
+	char key_press;
 
 	while (!gameover){
 		system("CLS");	//not portable
 		cout << flush;
 		m.clear();
+		
+
 		//W - up
 		if (GetAsyncKeyState(87) != 0){
-			playerA->up();
-			
+			if (m.isInHeight(playerA->getY() - playerA->getSpeed())) //checks if within bounds
+				playerA->up();
 		}
 		//D - right
 		else if (GetAsyncKeyState(68) != 0){
-			playerA->right();
+			if (m.isInWidth(playerA->getX() + playerA->getSpeed()))
+				playerA->right();
 		}
 		//S - down
 		else if (GetAsyncKeyState(83) != 0){
-			playerA->down();
+			if (m.isInHeight(playerA->getY() + playerA->getSpeed()))
+				playerA->down();
 		}
 		//A - left
 		else if (GetAsyncKeyState(65) != 0){
-			playerA->left();
+			if (m.isInWidth(playerA->getX() - playerA->getSpeed()))
+				playerA->left();
 		}
 		//SPACEBAR - attack
 		else if (GetAsyncKeyState(VK_SPACE) != 0){
@@ -95,5 +101,5 @@ int main(){
 
 	//cout << "DONE" << endl;
 
-	system("pause");
+	//system("pause");
 }

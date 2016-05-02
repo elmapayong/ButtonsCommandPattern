@@ -14,6 +14,20 @@ bool Map::insert(int x, int y, char c){
 	return false;
 }
 
+bool Map::isInWidth(int x){
+	if (x > 0 && x < WIDTH-1)
+		return true;
+
+	return false;
+}
+
+bool Map::isInHeight(int y){
+	if (y > 0 && y < HEIGHT-1)
+		return true;
+
+	return false;
+}
+
 void Map::clear(){
 	for (int y = 0; y < HEIGHT; ++y){
 		for (int x = 0; x < WIDTH; ++x){
