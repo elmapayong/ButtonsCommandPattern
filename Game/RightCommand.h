@@ -1,9 +1,9 @@
 #ifndef RIGHT_H
 #define RIGHT_H
 
-#include "Character.h"
+#include "Command.h"
 
-class RightCommand : public RightCommand{
+class RightCommand : public Command{
 public:
 	void execute(Character& person);
 };

@@ -31,19 +31,56 @@ int main(){
 	//	Sleep(300);
 	//}
 
+	//Map m;
+
+	//Player A;
+	//A.print();
+	//A.down(); 
+	//A.print();
+	//A.right();
+	//A.print();
+	//m.insert(A.getX(), A.getY(), A.getID());
+
+	//m.print();
+
+	bool gameover = false;
+	Character* playerA = new Player();
 	Map m;
 
-	Player A;
-	A.print();
-	A.down(); 
-	A.print();
-	A.right();
-	A.print();
-	m.insert(A.getX(), A.getY(), A.getID());
 
-	m.print();
-
-
+	while (!gameover){
+		system("CLS");	//not portable
+		cout << flush;
+		m.clear();
+		//W - up
+		if (GetAsyncKeyState(87) != 0){
+			playerA->up();
+			
+		}
+		//D - right
+		else if (GetAsyncKeyState(68) != 0){
+			playerA->right();
+		}
+		//S - down
+		else if (GetAsyncKeyState(83) != 0){
+			playerA->down();
+		}
+		//A - left
+		else if (GetAsyncKeyState(65) != 0){
+			playerA->left();
+		}
+		//SPACEBAR - attack
+		else if (GetAsyncKeyState(VK_SPACE) != 0){
+			playerA->attack();
+		}
+		else if (GetAsyncKeyState(VK_BACK) != 0){
+			gameover = true;
+		}
+		
+		m.insert(playerA->getX(), playerA->getY(), playerA->getID());
+		m.print();
+		Sleep(100);
+	}
 
 
 
