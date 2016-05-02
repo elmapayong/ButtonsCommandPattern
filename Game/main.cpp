@@ -6,6 +6,9 @@
 #include "LeftCommand.h"
 #include "RightCommand.h"
 #include "AttackCommand.h"
+#include "Monster.h"
+#include "Troll.h"
+#include "Spawner.h"
 #include "Map.h"
 #include <Windows.h>
 
@@ -22,7 +25,16 @@ int main(){
 	Command* right = new RightCommand();
 	Command* attack = new AttackCommand();
 	
-	playerA->setX(1);
+	Monster* weakTrollPrototype = new Troll(30, 5);
+	Spawner* weakTrollSpawner = new Spawner(weakTrollPrototype);
+
+	Monster* troll1 = weakTrollSpawner->spawn();
+	Monster* troll2 = weakTrollSpawner->spawn();
+	Monster* troll3 = weakTrollSpawner->spawn();
+
+	troll1->setX(5);  troll1->setY(20);
+	troll2->setX(15);  troll2->setY(8);
+	troll3->setX(50);  troll3->setY(18);
 	
 	bool gameover = false;
 	while (!gameover){
@@ -30,6 +42,9 @@ int main(){
 		cout << flush;
 		m.clear();
 		
+		m.insert(troll1->getX(), troll1->getY(), troll1->getID());
+		m.insert(troll2->getX(), troll2->getY(), troll2->getID());
+		m.insert(troll3->getX(), troll3->getY(), troll3->getID());
 
 		//W - up
 		if (GetAsyncKeyState(87) != 0){

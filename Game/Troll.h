@@ -2,9 +2,8 @@
 #define TROLL_H
 
 #include "Monster.h"
-#include "Character.h"
 
-class Troll : public Monster, public Character{
+class Troll : public Monster{
 public:
 	Troll(int health, int strength);
 	void attack();

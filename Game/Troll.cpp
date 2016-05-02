@@ -1,6 +1,7 @@
 #include "Troll.h"
 
 Troll::Troll(int h, int str){
+	ID = 'o';
 	health = h;
 	strength = h;
 }
