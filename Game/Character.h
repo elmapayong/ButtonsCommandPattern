@@ -14,7 +14,7 @@ public:
 	virtual void down();
 	virtual void left();
 	virtual void right();
-	virtual void fire() = 0;
+	virtual void attack() = 0;
 	void print();
 protected:
 	char ID;	//ID for map

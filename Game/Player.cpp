@@ -8,6 +8,6 @@ Player::Player(){
 	strength = 10;
 }
 
-void Player::fire(){
+void Player::attack(){
 
 }

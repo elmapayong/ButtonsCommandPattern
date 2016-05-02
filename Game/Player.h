@@ -10,7 +10,7 @@ public:
 	//void down();
 	//void left();
 	//void right();
-	void fire();
+	void attack();
 };
 
 #endif // !PLAYER_H
