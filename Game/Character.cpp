@@ -1,18 +1,31 @@
 #include "Character.h"
 
 Character::Character(){
+	ID = 'x';
 	x = 0;
 	y = 0;
 	health = 0;
 	strength = 0;
 }
 
+int Character::getX(){
+	return x;
+}
+
+int Character::getY(){
+	return y;
+}
+
+char Character::getID(){
+	return ID;
+}
+
 void Character::up(){
-	++y;
+	--y;
 }
 
 void Character::down(){
-	--y;
+	++y;
 }
 
 void Character::left(){
@@ -24,5 +37,5 @@ void Character::right(){
 }
 
 void Character::print(){
-	cout << "x:" << x << "  y:" << y;
+	cout << "x:" << x << "  y:" << y << endl;
 }

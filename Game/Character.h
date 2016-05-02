@@ -7,6 +7,9 @@ using namespace std;
 class Character{
 public:
 	Character();
+	int getX();
+	int getY();
+	char getID();
 	virtual void up();
 	virtual void down();
 	virtual void left();
@@ -14,6 +17,7 @@ public:
 	virtual void fire() = 0;
 	void print();
 protected:
+	char ID;	//ID for map
 	int x;
 	int y;
 	int health;

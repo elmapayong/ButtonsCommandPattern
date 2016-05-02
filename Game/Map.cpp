@@ -4,6 +4,16 @@ Map::Map(){
 	clear();
 }
 
+bool Map::insert(int x, int y, char c){
+	if (x > 0 && x < WIDTH){
+		if (y > 0 && y < HEIGHT){
+			map[y][x] = c;
+			return true;
+		}
+	}
+	return false;
+}
+
 void Map::clear(){
 	for (int y = 0; y < HEIGHT; ++y){
 		for (int x = 0; x < WIDTH; ++x){
@@ -15,7 +25,10 @@ void Map::clear(){
 void Map::print(){
 	for (int y = 0; y < HEIGHT; ++y){
 		for (int x = 0; x < WIDTH; ++x){
-			cout << map[y][x];
+			if (y == 0 || y == HEIGHT-1 || x == 0 || x == WIDTH-1)
+				cout << '*';
+			else
+				cout << map[y][x];
 		}
 		cout << endl;
 	}

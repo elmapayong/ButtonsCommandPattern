@@ -12,6 +12,7 @@ using namespace std;
 class Map{
 public:
 	Map();
+	bool insert(int x, int y, char c);
 	void clear();
 	void print();
 private:

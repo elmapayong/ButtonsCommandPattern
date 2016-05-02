@@ -33,6 +33,14 @@ int main(){
 
 	Map m;
 
+	Player A;
+	A.print();
+	A.down(); 
+	A.print();
+	A.right();
+	A.print();
+	m.insert(A.getX(), A.getY(), A.getID());
+
 	m.print();
 
 
